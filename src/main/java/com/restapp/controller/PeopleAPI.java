@@ -20,4 +20,9 @@ public class PeopleAPI {
    public List<Person> getPeople(){
 	   return people.getPeople();
    }
+
+@GetMapping("/db/people")
+public List<Person> getPeople2(){
+	   return people.getPeople2();
+}
 }
