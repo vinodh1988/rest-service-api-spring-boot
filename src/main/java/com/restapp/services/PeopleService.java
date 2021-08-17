@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.util.RecordAlreadyExists;
+import com.rest.util.RecordNotExists;
 import com.restapp.entities.Person;
 import com.restapp.repositories.PeopleRepository;
 
@@ -48,6 +49,27 @@ public class PeopleService {
 	  {
 		  people.save(p); // Save method updates the record if it sno already exists
 	  }
+   }
+   
+   public void updatePeople(Person p) throws RecordNotExists{
+	   Person result = people.findBySno(p.getSno());
+		  if(result==null)
+			   throw new RecordNotExists();
+		  else
+		  {
+			  people.save(p); // Save method updates the record if it sno already exists
+		  }
+   }
+   
+   public void deletePeople(Integer sno) throws RecordNotExists
+   {  
+	   Person result = people.findBySno(sno);
+		  if(result==null)
+			   throw new RecordNotExists();
+		  else
+		  {
+			  people.delete(result); // Save method updates the record if it sno already exists
+		  }
    }
    
 }
