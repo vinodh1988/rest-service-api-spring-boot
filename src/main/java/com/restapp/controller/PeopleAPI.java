@@ -34,7 +34,7 @@ import com.restapp.services.PeopleService;
 
 @RestController
 @RequestMapping("/api")
-public class PeopleAPI {
+public class PeopleAPI implements PeopleAPISpecification {
 @Autowired
 	  PeopleService people;
 
