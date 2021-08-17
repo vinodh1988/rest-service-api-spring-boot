@@ -72,4 +72,8 @@ public class PeopleService {
 		  }
    }
    
+   public List<Person> getRange(Integer start, Integer end){
+	   return people.peopleByRange(start, end);
+   }
+   
 }

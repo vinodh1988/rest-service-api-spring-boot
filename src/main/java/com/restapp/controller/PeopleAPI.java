@@ -36,6 +36,12 @@ public List<Person> getPeople2(){
 	   return people.getPeople2();
 }
 
+
+@GetMapping("/db/people/{start}/{end}")
+public List<Person> getPeople2(@PathVariable Integer start,@PathVariable Integer end){
+	   return people.getRange(start, end);
+}
+
 @PostMapping("/db/people")
 public ResponseEntity<Person> addPeople(@RequestBody Person person) {
 	try {
